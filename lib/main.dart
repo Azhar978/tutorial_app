@@ -8,44 +8,40 @@ void main(){
   runApp(main_Screen());
 }
 class main_Screen extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.red,
           title: Text("Flutter Tutorials", textDirection: TextDirection.ltr),
-          leading: IconButton(
-            icon: Icon(CupertinoIcons.back),
-            onPressed: (){
-            },
-          ),
         ),
+
         body: ListView(
           children: [
-            RaisedButton(
-              child: Text("Intro"),
-              onPressed: (){},
-            ),
-            RaisedButton(child: Text("Ok"),
-              onPressed: (){},
-            ),
-            RaisedButton(
-              child: Text("thats"),
-              onPressed: (){},
-            ),
-            RaisedButton(
-              child: Text("great"),
-              onPressed: (){},
-            ),
             ListTile(
-              leading: Icon(Icons.favorite),
-              title: Text("Mannan"),
-              trailing: Icon(Icons.dialpad),
-              selectedTileColor: Colors.amberAccent??Colors.red,
+              title: Text("Intro to flutter"),
               onTap: (){
 
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                  content: Text("you clicker"),
+                      action: SnackBarAction(
+                        label: 'ok',
+                        onPressed: (){},
+                      ),
+                )
+                );
               },
             ),
+
           ],
         ),
       ),
